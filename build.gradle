@@ -1,0 +1,133 @@
+apply plugin: 'idea'
+apply plugin: 'java'
+apply plugin: 'docker'
+
+
+buildscript {
+    repositories {
+        mavenLocal()
+        mavenCentral()
+        jcenter()
+
+    }
+
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.3.RELEASE")
+        classpath('se.transmode.gradle:gradle-docker:1.2')
+    }
+}
+
+idea {
+    project {
+        jdkName = '1.8'
+        languageLevel = '1.8'
+        vcs = 'Git'
+    }
+}
+
+configure(allprojects) { project ->
+    group = "com.lijingyao.gateway.coffee"
+    version = "1.0.0-SNAPSHOT"
+    ext.junitVersion = "4.12"
+    ext.dockerGroup = "gateway"
+    ext.dockerModule = true
+
+
+    ext.junit = "4.12"
+    ext.springVersion = "4.3.8.RELEASE"
+    ext.springBootVersion = "1.5.3.RELEASE"
+    ext.slf4jVersion = "1.7.21"
+    ext.poiVersion = "3.16"
+
+//    ext.serviceTemplate = "com.puregold.microservice:service-template:${serviceVersion}"
+
+    ext.springSecurityCrypto = "org.springframework.security:spring-security-crypto:3.2.7.RELEASE"
+    ext.springBootAutoconfigure = "org.springframework.boot:spring-boot-autoconfigure:${springBootVersion}"
+    ext.springBoot = "org.springframework.boot:spring-boot:${springBootVersion}"
+    ext.springBootStart = "org.springframework.boot:spring-boot-starter:${springBootVersion}"
+    ext.springBootStartTest = "org.springframework.boot:spring-boot-starter-test:${springBootVersion}"
+    ext.springBootStartWeb = "org.springframework.boot:spring-boot-starter-web:${springBootVersion}"
+    ext.springBootStartTomcat = "org.springframework.boot:spring-boot-starter-tomcat:${springBootVersion}"
+    ext.springBootStartSecurity = "org.springframework.boot:spring-boot-starter-security:${springBootVersion}"
+    ext.springBootActuator = "org.springframework.boot:spring-boot-actuator:${springBootVersion}"
+    ext.springBootStartAop = "org.springframework.boot:spring-boot-starter-aop:${springBootVersion}"
+
+    ext.springCloudEureka = "org.springframework.cloud:spring-cloud-starter-eureka"
+    ext.springCloudFeign = "org.springframework.cloud:spring-cloud-starter-feign"
+
+
+    ext.commonsLang3 = "org.apache.commons:commons-lang3:3.4"
+    ext.commonsIo = "commons-io:commons-io:2.5"
+    ext.commonsCollection4 = "org.apache.commons:commons-collections4:4.0"
+    ext.javaxServlet = "javax.servlet:javax.servlet-api:3.1.0"
+    ext.slf4jApi = "org.slf4j:slf4j-api:${slf4jVersion}"
+    ext.junit = "junit:junit:${junitVersion}"
+    ext.swagger = "io.springfox:springfox-swagger2:2.6.0"
+
+    ext.rxjava = "io.reactivex:rxjava:1.3.0"
+
+
+}
+
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'spring-boot'
+    apply plugin: 'maven'
+    apply plugin: 'docker'
+    apply plugin: 'io.spring.dependency-management'
+
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+
+    compileJava.options.encoding = "UTF-8"
+
+    tasks.withType(org.gradle.api.tasks.compile.JavaCompile) {
+        options.encoding = "UTF-8"
+    }
+
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
+
+    dependencyManagement {
+        imports {
+            mavenBom "org.springframework.cloud:spring-cloud-dependencies:Brixton.SR7"
+        }
+    }
+
+    dependencies {
+        testCompile "${junit}"
+    }
+
+
+
+}
+
+
+project("api") {
+    dependencies {
+
+        compile "commons-httpclient:commons-httpclient:3.1"
+
+        compile "${springCloudEureka}"
+        compile "${springCloudFeign}"
+
+
+
+        compile "${rxjava}"
+        compile "${commonsIo}"
+        compile "${commonsLang3}"
+        compile "${commonsCollection4}"
+        compile "${slf4jApi}"
+        compile "${swagger}"
+        compile "${springBootAutoconfigure}"
+        compile "${springBootStartWeb}"
+        compile "${springBootStartTomcat}"
+        compile "${springSecurityCrypto}"
+        compile "${springBootStartSecurity}"
+        compile "${springBootActuator}"
+        compile "${springBootStartAop}"
+        compile "${javaxServlet}"
+    }
+}

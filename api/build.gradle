@@ -1,0 +1,15 @@
+task buildDocker(type: Docker, dependsOn: build) {
+
+    tagVersion = "1.0.0"
+    applicationName = "api-gateway"
+    tag = "localhost:5000/${applicationName}"
+    push = true
+    dockerfile = ('../docker/Dockerfile')
+    doFirst {
+        copy {
+            from jar
+            rename { 'app.jar' }
+            into stageDir
+        }
+    }
+}
