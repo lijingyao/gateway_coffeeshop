@@ -1,5 +1,7 @@
 package com.lijingyao.microservice.coffee.gateway.api.models;
 
+import java.util.List;
+
 /**
  * Created by lijingyao on 2018/7/9 16:45.
  */
@@ -9,8 +11,16 @@ public class UserCenterModel {
     private Long registeredTime;
     private String nickName;
 
-    private String orderTitle;
+    private List<UserSimpleOrderModel> orderModels;
 
+
+    public List<UserSimpleOrderModel> getOrderModels() {
+        return orderModels;
+    }
+
+    public void setOrderModels(List<UserSimpleOrderModel> orderModels) {
+        this.orderModels = orderModels;
+    }
 
     public Long getUserId() {
         return userId;
@@ -36,11 +46,5 @@ public class UserCenterModel {
         this.nickName = nickName;
     }
 
-    public String getOrderTitle() {
-        return orderTitle;
-    }
 
-    public void setOrderTitle(String orderTitle) {
-        this.orderTitle = orderTitle;
-    }
 }
