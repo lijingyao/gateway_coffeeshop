@@ -39,10 +39,9 @@ public class OrderAdapter {
         List<OrderCreateDetailModel> detailModels = createModel.getDetails();
 
         OrderItemDTO orderItemDTO = orderAssembler.assembleOrderItem(detailModels);
-        Observable<OrderItemPriceDTO> priceDTOObs = itemTranslator.buildItemOrderPriceObs(orderItemDTO);
+        Observable<OrderItemPriceDTO> priceDTOObs = itemTranslator.buildItemOrderPriceObs(orderItemDTO).cache();
 
-
-        Observable<OrderDTO> orderDTOObs = getOrderCreativeObs(priceDTOObs, createModel);
+        Observable<OrderDTO> orderDTOObs = getOrderCreativeObs(priceDTOObs, createModel).cache();
 
         Observable<Result<OrderModel>> observable = orderDTOObs.flatMap(orderDTO -> {
             result.setResult(orderAssembler.assembleOrderModel(orderDTO));
@@ -56,10 +55,8 @@ public class OrderAdapter {
     private Observable<OrderDTO> getOrderCreativeObs(Observable<OrderItemPriceDTO> obs, OrderCreateModel createModel) {
         return obs.flatMap(itemPriceDTO -> {
 
-
             List<OrderItemDetailPriceDTO> priceDTOS = itemPriceDTO.getPriceDTOS();
             OrderCreateDTO createDTO = orderAssembler.assembleOrderCreateDTO(priceDTOS, createModel);
-
 
             return orderTranslator.orderCreativeObs(createDTO);
         });
