@@ -4,6 +4,7 @@ import com.lijingyao.microservice.coffee.gateway.api.assemblers.UserCenterAssemb
 import com.lijingyao.microservice.coffee.gateway.api.base.RestExceptionHandler;
 import com.lijingyao.microservice.coffee.gateway.api.models.UserCenterModel;
 import com.lijingyao.microservice.coffee.gateway.api.base.Result;
+import com.lijingyao.microservice.coffee.gateway.api.translator.OrderTranslator;
 import com.lijingyao.microservice.coffee.gateway.api.translator.UserTranslator;
 import com.lijingyao.microservice.coffee.template.users.UserDTO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,9 @@ public class UserCenterAdapter {
     private UserTranslator userTranslator;
 
     @Autowired
+    private OrderTranslator orderTranslator;
+
+    @Autowired
     private UserCenterAssembler userCenterAssembler;
 
 
@@ -36,4 +40,7 @@ public class UserCenterAdapter {
 
         return observable.toBlocking().first();
     }
+
+
+
 }
