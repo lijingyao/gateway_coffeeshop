@@ -39,16 +39,17 @@ configure(allprojects) { project ->
     ext.slf4jVersion = "1.7.21"
     ext.poiVersion = "3.16"
 
-//    ext.serviceTemplate = "com.puregold.microservice:service-template:${serviceVersion}"
 
-    ext.springSecurityCrypto = "org.springframework.security:spring-security-crypto:3.2.7.RELEASE"
+    ext.serviceDto = "com.lijingyao.microservice.coffee:service_dto:1.0.0"
+
+//    ext.springSecurityCrypto = "org.springframework.security:spring-security-crypto:3.2.7.RELEASE"
     ext.springBootAutoconfigure = "org.springframework.boot:spring-boot-autoconfigure:${springBootVersion}"
     ext.springBoot = "org.springframework.boot:spring-boot:${springBootVersion}"
     ext.springBootStart = "org.springframework.boot:spring-boot-starter:${springBootVersion}"
     ext.springBootStartTest = "org.springframework.boot:spring-boot-starter-test:${springBootVersion}"
     ext.springBootStartWeb = "org.springframework.boot:spring-boot-starter-web:${springBootVersion}"
     ext.springBootStartTomcat = "org.springframework.boot:spring-boot-starter-tomcat:${springBootVersion}"
-    ext.springBootStartSecurity = "org.springframework.boot:spring-boot-starter-security:${springBootVersion}"
+//    ext.springBootStartSecurity = "org.springframework.boot:spring-boot-starter-security:${springBootVersion}"
     ext.springBootActuator = "org.springframework.boot:spring-boot-actuator:${springBootVersion}"
     ext.springBootStartAop = "org.springframework.boot:spring-boot-starter-aop:${springBootVersion}"
 
@@ -62,7 +63,7 @@ configure(allprojects) { project ->
     ext.javaxServlet = "javax.servlet:javax.servlet-api:3.1.0"
     ext.slf4jApi = "org.slf4j:slf4j-api:${slf4jVersion}"
     ext.junit = "junit:junit:${junitVersion}"
-    ext.swagger = "io.springfox:springfox-swagger2:2.6.0"
+    ext.fastjson = "com.alibaba:fastjson:1.2.15"
 
     ext.rxjava = "io.reactivex:rxjava:1.3.0"
 
@@ -113,21 +114,21 @@ project("api") {
         compile "${springCloudEureka}"
         compile "${springCloudFeign}"
 
-
+        compile "${serviceDto}"
 
         compile "${rxjava}"
         compile "${commonsIo}"
         compile "${commonsLang3}"
         compile "${commonsCollection4}"
         compile "${slf4jApi}"
-        compile "${swagger}"
+        compile "${fastjson}"
         compile "${springBootAutoconfigure}"
         compile "${springBootStartWeb}"
         compile "${springBootStartTomcat}"
-        compile "${springSecurityCrypto}"
-        compile "${springBootStartSecurity}"
+
         compile "${springBootActuator}"
         compile "${springBootStartAop}"
         compile "${javaxServlet}"
+
     }
 }
