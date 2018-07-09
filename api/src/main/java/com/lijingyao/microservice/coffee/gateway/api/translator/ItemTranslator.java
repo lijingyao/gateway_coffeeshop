@@ -21,7 +21,6 @@ public class ItemTranslator extends BaseTranslator {
     private ItemClient itemClient;
 
 
-
     private OrderItemPriceDTO buildItemOrderPrice(OrderItemDTO orderItemDTO) {
         ResponseEntity result = itemClient.buildItemOrderPrice(orderItemDTO);
         return (OrderItemPriceDTO) valueOfResult(result, OrderItemPriceDTO.class);

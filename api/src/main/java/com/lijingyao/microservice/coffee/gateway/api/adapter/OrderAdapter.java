@@ -1,6 +1,7 @@
 package com.lijingyao.microservice.coffee.gateway.api.adapter;
 
 import com.lijingyao.microservice.coffee.gateway.api.assemblers.OrderAssembler;
+import com.lijingyao.microservice.coffee.gateway.api.base.GatewayErrors;
 import com.lijingyao.microservice.coffee.gateway.api.base.RestExceptionHandler;
 import com.lijingyao.microservice.coffee.gateway.api.base.Result;
 import com.lijingyao.microservice.coffee.gateway.api.models.OrderCreateDetailModel;
@@ -15,6 +16,7 @@ import com.lijingyao.microservice.coffee.template.trade.OrderCreateDTO;
 import com.lijingyao.microservice.coffee.template.trade.OrderDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.util.CollectionUtils;
 import rx.Observable;
 
 import java.util.List;
@@ -37,6 +39,7 @@ public class OrderAdapter {
         Result<OrderModel> result = new Result<>();
 
         List<OrderCreateDetailModel> detailModels = createModel.getDetails();
+        if(CollectionUtils.isEmpty(detailModels))return result.setErrors(GatewayErrors.ILLEGAL_PARAM_ERROR);
 
         OrderItemDTO orderItemDTO = orderAssembler.assembleOrderItem(detailModels);
         Observable<OrderItemPriceDTO> priceDTOObs = itemTranslator.buildItemOrderPriceObs(orderItemDTO).cache();
