@@ -7,10 +7,14 @@ import com.lijingyao.microservice.coffee.template.items.OrderItemDTO;
 import com.lijingyao.microservice.coffee.template.items.OrderItemDetailPriceDTO;
 import com.lijingyao.microservice.coffee.template.trade.OrderCreateDTO;
 import com.lijingyao.microservice.coffee.template.trade.OrderDTO;
+import org.springframework.stereotype.Component;
 
-import java.util.List; /**
+import java.util.List;
+
+/**
  * Created by lijingyao on 2018/7/9 22:02.
  */
+@Component
 public class OrderAssembler {
 
     public OrderItemDTO assembleOrderItem(List<OrderCreateDetailModel> detailModels) {
