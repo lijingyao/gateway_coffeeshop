@@ -39,7 +39,7 @@ public class OrderAdapter {
         Result<OrderModel> result = new Result<>();
 
         List<OrderCreateDetailModel> detailModels = createModel.getDetails();
-        if(CollectionUtils.isEmpty(detailModels))return result.setErrors(GatewayErrors.ILLEGAL_PARAM_ERROR);
+        if (CollectionUtils.isEmpty(detailModels)) return result.setErrors(GatewayErrors.ILLEGAL_PARAM_ERROR);
 
         OrderItemDTO orderItemDTO = orderAssembler.assembleOrderItem(detailModels);
         Observable<OrderItemPriceDTO> priceDTOObs = itemTranslator.buildItemOrderPriceObs(orderItemDTO).cache();
@@ -59,6 +59,9 @@ public class OrderAdapter {
         return obs.flatMap(itemPriceDTO -> {
 
             List<OrderItemDetailPriceDTO> priceDTOS = itemPriceDTO.getPriceDTOS();
+
+            if (CollectionUtils.isEmpty(priceDTOS)) return Observable.just(null);
+
             OrderCreateDTO createDTO = orderAssembler.assembleOrderCreateDTO(priceDTOS, createModel);
 
             return orderTranslator.orderCreativeObs(createDTO);

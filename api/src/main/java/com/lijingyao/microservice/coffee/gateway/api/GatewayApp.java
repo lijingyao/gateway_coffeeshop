@@ -8,6 +8,13 @@ import org.springframework.cloud.netflix.feign.EnableFeignClients;
 @EnableFeignClients
 @EnableEurekaClient
 @SpringBootApplication
+
+/**
+ * API-Gateway
+ *
+ * Thanks to Guanghao.Rongbo
+ *
+ */
 public class GatewayApp {
     public static void main(String[] args) {
         SpringApplication.run(GatewayApp.class, args);

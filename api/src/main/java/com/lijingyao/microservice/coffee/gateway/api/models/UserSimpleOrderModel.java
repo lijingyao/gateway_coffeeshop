@@ -11,8 +11,6 @@ public class UserSimpleOrderModel {
 
     private Long createTime;
 
-    private int itemNum;
-
 
     public String getOrderId() {
         return orderId;
@@ -38,11 +36,5 @@ public class UserSimpleOrderModel {
         this.createTime = createTime;
     }
 
-    public int getItemNum() {
-        return itemNum;
-    }
 
-    public void setItemNum(int itemNum) {
-        this.itemNum = itemNum;
-    }
 }

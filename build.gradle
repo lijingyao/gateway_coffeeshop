@@ -40,7 +40,7 @@ configure(allprojects) { project ->
     ext.poiVersion = "3.16"
 
 
-    ext.serviceDto = "com.lijingyao.microservice.coffee:service_dto:1.0.0"
+    ext.serviceDto = "com.lijingyao.microservice.coffee:service_dto:0.0.1"
 
 //    ext.springSecurityCrypto = "org.springframework.security:spring-security-crypto:3.2.7.RELEASE"
     ext.springBootAutoconfigure = "org.springframework.boot:spring-boot-autoconfigure:${springBootVersion}"
@@ -84,6 +84,11 @@ subprojects {
 
     tasks.withType(org.gradle.api.tasks.compile.JavaCompile) {
         options.encoding = "UTF-8"
+    }
+
+    task sourcesJar(type: Jar, dependsOn: classes) {
+        classifier = 'sources'
+        from sourceSets.main.allSource
     }
 
     repositories {

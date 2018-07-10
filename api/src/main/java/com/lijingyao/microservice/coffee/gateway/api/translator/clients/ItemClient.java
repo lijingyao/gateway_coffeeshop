@@ -22,4 +22,6 @@ public interface ItemClient {
     @RequestMapping(value = "/prices", method = {RequestMethod.POST})
     ResponseEntity<ResponseResult> buildItemOrderPrice(@RequestBody OrderItemDTO itemDTO);
 
+
+
 }

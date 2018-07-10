@@ -37,9 +37,7 @@ public class UserCenterAssembler {
         model.setCreateTime(o.getCreateTime());
         model.setOrderId(o.getOrderId());
         model.setOrderPrice(o.getTotalPrice());
-        if (!CollectionUtils.isEmpty(o.getDetails())) {
-            model.setItemNum(o.getDetails().size());
-        }
+
         return model;
     }
 }

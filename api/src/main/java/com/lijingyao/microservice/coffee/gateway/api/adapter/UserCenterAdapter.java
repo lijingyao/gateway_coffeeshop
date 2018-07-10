@@ -4,6 +4,7 @@ import com.lijingyao.microservice.coffee.gateway.api.assemblers.UserCenterAssemb
 import com.lijingyao.microservice.coffee.gateway.api.base.RestExceptionHandler;
 import com.lijingyao.microservice.coffee.gateway.api.base.Result;
 import com.lijingyao.microservice.coffee.gateway.api.models.UserCenterModel;
+import com.lijingyao.microservice.coffee.gateway.api.translator.ItemTranslator;
 import com.lijingyao.microservice.coffee.gateway.api.translator.OrderTranslator;
 import com.lijingyao.microservice.coffee.gateway.api.translator.UserTranslator;
 import com.lijingyao.microservice.coffee.template.trade.OrderDTO;
@@ -27,6 +28,9 @@ public class UserCenterAdapter {
 
     @Autowired
     private OrderTranslator orderTranslator;
+
+    @Autowired
+    private ItemTranslator itemTranslator;
 
     @Autowired
     private UserCenterAssembler userCenterAssembler;
