@@ -11,6 +11,8 @@ public class UserSimpleOrderModel {
 
     private Long createTime;
 
+    // TODO add more detail order info and item info
+
 
     public String getOrderId() {
         return orderId;
