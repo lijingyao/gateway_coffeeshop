@@ -18,7 +18,7 @@ Gateway是所有客户端请求的入口。类似Facade模式。为了提高请�
 * 使用的工程构建工具：Gradle、Gradlew插件    
 * 涉及到的框架有：SpringMVC、SpringBoot、SpringCloud-Netflix Eureka\Feign\Ribbon、     
 * 服务间通信：Restful API   
-* 服务基础涉及原则：DDD(Domain-Drive Design)     
+* 服务基础涉及原则：DDD(Domain-Driven Design)     
 
 其他：
 
