@@ -35,3 +35,11 @@ Gateway是所有客户端请求的入口。类似Facade模式。为了提高请�
 来做API 的信息管理，方便前后端联调、测试。本工程中，读者可以尝试自己checkout下来添加下Swagger的配置。     
 
  
+
+## Gitchat 课程
+
+课程地址:      
+[分布式微服务架构体系详解](https://gitbook.cn/gitchat/column/5b444ae694c0f60b4ec4a68c)
+ 
+Gitchat chat地址：  
+[基于 Docker 的微服务架构实践](https://gitbook.cn/gitchat/activity/5a425b957431432eb6052297)
