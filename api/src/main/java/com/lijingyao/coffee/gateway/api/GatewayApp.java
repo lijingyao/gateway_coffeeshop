@@ -10,9 +10,10 @@ import org.springframework.cloud.netflix.feign.EnableFeignClients;
 @SpringBootApplication
 
 /**
- * API-Gateway
+ * API-Gateway for microservice_coffeeshop
  *
- * Thanks to Guanghao.Rongbo
+ *
+ * Thanks to guanghao.rb
  *
  */
 public class GatewayApp {
