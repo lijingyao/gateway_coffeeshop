@@ -86,7 +86,7 @@ public class OrderAssembler {
         return orderModel;
     }
 
-    private OrderDetailModel wrapDetailOrderModel(OrderDetailDTO dto) {
+    public OrderDetailModel wrapDetailOrderModel(OrderDetailDTO dto) {
         OrderDetailModel detailModel = new OrderDetailModel();
         orderModelDetailCopier.copy(dto, detailModel, null);
         return detailModel;

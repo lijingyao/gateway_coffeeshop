@@ -66,6 +66,7 @@ configure(allprojects) { project ->
     ext.fastjson = "com.alibaba:fastjson:1.2.15"
 
     ext.rxjava = "io.reactivex:rxjava:1.3.0"
+    ext.swagger = "io.springfox:springfox-swagger2:2.6.0"
 
 
 }
@@ -134,6 +135,7 @@ project("api") {
 
         compile "${springBootActuator}"
         compile "${springBootStartAop}"
+        compile "${swagger}"
         compile "${javaxServlet}"
 
     }

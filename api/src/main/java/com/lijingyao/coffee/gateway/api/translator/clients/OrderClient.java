@@ -18,6 +18,9 @@ public interface OrderClient {
 
 
     @RequestMapping(value = "/users/{userId}", method = {RequestMethod.GET})
-    ResponseEntity<ResponseResult> getUserNewOrders(@PathVariable("userId") Long userId, @RequestParam("orderSize") Integer orderSize, @RequestParam("detailOrderSize") Integer detailOrderSize);
+    ResponseEntity<ResponseResult> getUserNewOrders(@PathVariable("userId") Long userId, @RequestParam("orderSize") Integer orderSize);
 
+
+    @RequestMapping(value = "/details", method = {RequestMethod.GET})
+    ResponseEntity<ResponseResult> getDetailOrders(@RequestParam("mainOrderIds") String[] mainOrderIds, @RequestParam("orderSize") Integer orderSize);
 }

@@ -11,8 +11,15 @@ public class UserSimpleOrderModel {
 
     private Long createTime;
 
-    // TODO add more detail order info and item info
+    private OrderDetailModel detail;
 
+    public OrderDetailModel getDetail() {
+        return detail;
+    }
+
+    public void setDetail(OrderDetailModel detail) {
+        this.detail = detail;
+    }
 
     public String getOrderId() {
         return orderId;
