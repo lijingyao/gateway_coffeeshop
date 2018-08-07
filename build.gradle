@@ -40,7 +40,7 @@ configure(allprojects) { project ->
     ext.poiVersion = "3.16"
 
 
-    ext.serviceDto = "com.lijingyao.microservice.coffee:service_dto:0.0.1"
+    ext.serviceDto = "com.lijingyao.microservice.coffee:service_dto:0.0.2"
 
 //    ext.springSecurityCrypto = "org.springframework.security:spring-security-crypto:3.2.7.RELEASE"
     ext.springBootAutoconfigure = "org.springframework.boot:spring-boot-autoconfigure:${springBootVersion}"

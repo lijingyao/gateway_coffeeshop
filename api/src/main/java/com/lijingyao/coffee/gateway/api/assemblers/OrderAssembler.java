@@ -43,6 +43,9 @@ public class OrderAssembler {
         detailDTO.setItemId(o.getItemId());
         detailDTO.setEspresso(o.getEspresso());
         detailDTO.setQuantity(o.getQuantity());
+        detailDTO.setCoffeine(o.getCoffeine());
+        detailDTO.setMilk(o.getMilk());
+        detailDTO.setSugar(o.getSugar());
         return detailDTO;
     }
 
